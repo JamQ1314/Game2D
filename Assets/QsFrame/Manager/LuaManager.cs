@@ -27,18 +27,14 @@ public class LuaManager : MonoBehaviour
     public void LoadLua(string luaName)
     {
 
-        if (true)
-        {
-            luaEnv.DoString(string.Format("require '{0}'", luaName));
-            return;
-        }
-        else
-        {
-            TextAsset luaScript = GApp.AssetMgr.Load<TextAsset>(luaName + ".lua");
-            if (luaScript != null)
-                luaEnv.DoString(luaScript.text);
-        }
-        
+#if UNITY_EDITOR
+        luaEnv.DoString(string.Format("require '{0}'", luaName));
+#else
+        TextAsset luaScript = GApp.AssetMgr.Load<TextAsset>(luaName + ".lua");
+        if (luaScript != null)
+            luaEnv.DoString(luaScript.text);
+#endif
+
     }
 
     private void Update()

@@ -66,7 +66,7 @@ public class AssetManager : ManagerBase
         {
             foreach (string dp in dps)
             {
-                //Debug.Log(string.Format("正在加载资源{0}依赖：{1}", name, dp));
+                Debug.Log(string.Format("正在加载资源{0}依赖：{1}", name, dp));
                 LoadAssetBundle(dp);
             }
         }

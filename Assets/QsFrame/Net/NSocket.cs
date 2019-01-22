@@ -113,7 +113,43 @@ public class NSocket
         byte[] tempHeadBuff = new byte[nHeadSize];
         Array.Copy(bytes, 0, tempHeadBuff, 0, nHeadSize);
 //        TCP_Head tcpHead = NetDefine.BytesToStru<TCP_Head>(tempHeadBuff);
+    }
 
+
+    public void SendAsync(ushort main_id,ushort sub_id,byte[] data = null,Action<Hashtable> callback = null,Hashtable hashtable = null)
+    {
+        TCP_Head tcpHead = new TCP_Head();
+        tcpHead.Cmd.Main_ID = main_id;
+        tcpHead.Cmd.Sub_ID = sub_id;
+        int nHeadSize = Marshal.SizeOf(tcpHead);
+
+        int nSendSize = nHeadSize;
+        if (data != null)
+            nSendSize += data.Length;
+
+        byte[] SendBuffer = new byte[nSendSize];
+        var Headbuffer = NetDefine.StruToBytes(tcpHead);
+        Array.Copy(Headbuffer, SendBuffer, nHeadSize);
+        if (data != null)
+            Array.Copy(data, 0, SendBuffer, nHeadSize, data.Length);
+
+        socket.BeginSend(SendBuffer,0, nSendSize,SocketFlags.None, (ar) =>
+        {
+            try
+            {
+                socket.EndSend(ar);
+                if (callback != null)
+                    callback(hashtable);
+            }
+            catch (SocketException se)
+            {
+                ReConn(se.ErrorCode);
+            }
+        },socket);
+    }
+
+    void SendCB(IAsyncResult ar)
+    {
 
     }
     public void ReConn(int eCode)

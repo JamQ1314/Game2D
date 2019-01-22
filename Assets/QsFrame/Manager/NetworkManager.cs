@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class NetworkManager : MonoBehaviour
+public class NetworkManager : ManagerBase
 {
-
-    private Dictionary<int, NSocket> ConnSockets = new Dictionary<int, NSocket>();
+    private Dictionary<int, NSocket> ConnSockets;
+    public override void Init()
+    {
+        base.Init();
+        ConnSockets = new Dictionary<int, NSocket>();
+    }
+    
     public void RigsterNetEvent(int socketID,int main_id,Action<int,byte[]> call)
     {
         NSocket nSocket = null;
@@ -26,6 +31,14 @@ public class NetworkManager : MonoBehaviour
         else
             nSocket = new NSocket(socketID);
         nSocket.ConnAsync(host, port);
+    }
+
+    public void Send(ushort main_id, ushort sub_id, byte[] data, Action<Hashtable> callback = null, Hashtable hashtable = null)
+    {
+        if (!ConnSockets.ContainsKey(main_id))
+            return;
+        NSocket nSocket =  ConnSockets[main_id];
+        nSocket.SendAsync(main_id, sub_id, data, callback, hashtable);
     }
 
     public void Close(int socketID)
