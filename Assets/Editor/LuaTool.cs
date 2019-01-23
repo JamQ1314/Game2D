@@ -19,6 +19,7 @@ public class LuaTool : Editor {
                 File.Delete(dstInfo.GetFiles()[i].FullName);
             }
         }
+        AssetDatabase.Refresh();
 
         DirectoryInfo srcInfo = new DirectoryInfo(srcPath);
         for (int i = 0; i < srcInfo.GetFiles().Length; i++)

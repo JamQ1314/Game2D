@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 7f0ef05bec64c9546bd7232d10176cde
+timeCreated: 1548205622
+licenseType: Pro
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: lua/defines.lua
+  assetBundleVariant: 

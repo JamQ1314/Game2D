@@ -33,8 +33,20 @@ function  LoginView.ondestroy()
 end
 
 function LoginView.wxlogin()
+    LoginView.NetConn()
     print("wxlogin");
 end
 function LoginView.qqlogin()
-    print("qqlogin");
+    LoginView.NetConn()
+end
+
+function LoginView.NetConn()
+    require('NetDefines')
+    --CS.GApp.NetMgr:Connect(EnumNetEvent.Common,"127.0.0.1",5555)
+
+    CS.GApp.SSDKMgr:QQLogin()
+end
+
+function LoginView.open(tb)
+    print("call back LoginView.open");
 end

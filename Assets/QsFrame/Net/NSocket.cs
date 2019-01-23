@@ -25,7 +25,6 @@ public class NSocket
     public NSocket(int id)
     {
         sid = id;
-        Debug.Log(sid);
 
         socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 

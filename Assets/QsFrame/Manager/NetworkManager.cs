@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[XLua.LuaCallCSharp]
 public class NetworkManager : ManagerBase
 {
     private Dictionary<int, NSocket> ConnSockets;
@@ -47,6 +47,15 @@ public class NetworkManager : ManagerBase
         {
             NSocket nSocket = ConnSockets[socketID];
             nSocket.Close();
+        }
+    }
+
+
+    private void OnDestroy()
+    {
+        foreach (var conn in ConnSockets.Values)
+        {
+            conn.Close();
         }
     }
 }

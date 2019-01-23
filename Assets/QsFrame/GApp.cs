@@ -51,7 +51,8 @@ public class GApp
         UIMgr.Init();
         AudioMgr.Init();
         LuaMgr.Init();
-        //SSDKMgr.Init();
+        SSDKMgr.Init();
+
     }
 #endregion
 }
