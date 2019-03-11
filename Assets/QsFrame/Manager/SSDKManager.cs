@@ -16,7 +16,7 @@ public class SSDKManager : ManagerBase {
         ssdk = FindObjectOfType<ShareSDK>();
         if (ssdk == null)
         {
-            Debug.LogError("Please Add GameObject with script 'ShareSDK'");
+            //Debug.LogError("Please Add GameObject with script 'ShareSDK'");
             return;
         }
         DontDestroyOnLoad(ssdk.gameObject);

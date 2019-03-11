@@ -27,10 +27,7 @@ public class GApp
     /// 热更新管理器
     /// </summary>
     public static LuaManager LuaMgr = null;
-    /// <summary>
-    /// ShareSDK管理器
-    /// </summary>
-    public static SSDKManager SSDKMgr = null;
+
 
     #region mono 方法
     public static void Init()
@@ -40,7 +37,6 @@ public class GApp
         UIMgr = UnitySingleton<UIManager>.Ins;
         AudioMgr = UnitySingleton<AudioManager>.Ins;
         LuaMgr = UnitySingleton<LuaManager>.Ins;
-        SSDKMgr = UnitySingleton<SSDKManager>.Ins;
     }
 
 
@@ -51,8 +47,6 @@ public class GApp
         UIMgr.Init();
         AudioMgr.Init();
         LuaMgr.Init();
-        SSDKMgr.Init();
-
     }
 #endregion
 }

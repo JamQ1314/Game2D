@@ -191,7 +191,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992930238}
-  m_LocalRotation: {x: -0.106337346, y: 0.24951574, z: -0.061393898, w: 0.96055454}
+  m_LocalRotation: {x: -0.10633735, y: 0.24951576, z: -0.0613939, w: 0.9605546}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
@@ -284,7 +284,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
