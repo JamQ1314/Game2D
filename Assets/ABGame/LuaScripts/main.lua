@@ -4,5 +4,6 @@
 --- DateTime: 2019/1/17 16:07
 ---
 
-CS.GApp.UIMgr:Open("LoginView")
+--CS.GApp.UIMgr:Open("LoginView")
 --CS.GApp.UIMgr:UIMgrHello()
+print("i am main lua")

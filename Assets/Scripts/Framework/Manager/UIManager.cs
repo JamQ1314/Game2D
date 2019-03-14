@@ -35,9 +35,8 @@ public class UIManager : ManagerBase
         {
             //先加载Lua再加载UI
             GApp.LuaMgr.LoadLua(name);
-            ui = GApp.AssetMgr.LoadAndInstantiate(name);
+            ui = GApp.BundleMgr.LoadAndInstantiate(name);
         }
-
         ui.GetComponent<LuaViewBehaviour>().Open(luaTable);
         dictOpenedUIs.Add(name, ui);
     }

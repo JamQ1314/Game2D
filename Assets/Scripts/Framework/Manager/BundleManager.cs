@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
-public class AssetManager : ManagerBase
+public class BundleManager : ManagerBase
 {
     /// <summary>
     /// 总依赖文件
@@ -23,7 +25,11 @@ public class AssetManager : ManagerBase
         dictAssets = new Dictionary<string, string>();
         lCacheDenpendences = new List<AssetBundle>();
 
+#if UNITY_EDITOR
+        LoadLocalAseet();
+#else
         LoadLocalManifest();
+#endif
     }
     /// <summary>
     /// 加载总依赖文件
@@ -46,6 +52,36 @@ public class AssetManager : ManagerBase
         }
         //UnityTools.LogDictionary(dictAssets);
     }
+
+    private void LoadLocalAseet()
+    {
+        string rootPtah = Application.dataPath + "/ABGame";
+        print("------------------------ " +rootPtah);
+        LoadLocalAseetBase(rootPtah);
+        UnityTools.LogDictionary(dictAssets);
+    }
+
+    private void LoadLocalAseetBase(string path)
+    {
+        DirectoryInfo info = new DirectoryInfo(path);
+
+        foreach (var file in info.GetFiles())
+        {
+            if (file.Extension != ".meta")
+            {
+                string rootPtah = Application.dataPath + "/ABGame";
+                var fullName = file.FullName.Replace("\\","/");
+                var relativeName = fullName.Replace(rootPtah,"");
+                dictAssets.Add(file.Name, relativeName);
+            }
+        }
+
+        foreach (var dir in info.GetDirectories())
+        {
+            LoadLocalAseetBase(dir.FullName);
+        }
+    }
+
     /// <summary>
     /// 加载资源
     /// </summary>
@@ -80,10 +116,15 @@ public class AssetManager : ManagerBase
     /// <returns></returns>
     public GameObject LoadAndInstantiate(string name)
     {
+#if UNITY_EDITOR
+        string abName = dictAssets[name.ToLower()];
+        return (GameObject)Instantiate(AssetDatabase.LoadAssetAtPath<Object>(""));
+#else
         Object o = Load<Object>(name);
         GameObject go = (GameObject)Instantiate(o);
         Invoke("Release", 3.0f);
         return go;
+#endif
     }
 
     /// <summary>

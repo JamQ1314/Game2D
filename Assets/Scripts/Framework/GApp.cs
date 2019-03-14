@@ -8,9 +8,9 @@ using XLua;
 public class GApp
 {
     /// <summary>
-    /// 资源管理器
+    /// AssetBundle管理器
     /// </summary>
-    public static AssetManager AssetMgr = null;
+    public static BundleManager BundleMgr = null;
     /// <summary>
     /// 网络管理器
     /// </summary>
@@ -32,7 +32,7 @@ public class GApp
     #region mono 方法
     public static void Init()
     {
-        AssetMgr = UnitySingleton<AssetManager>.Ins;
+        BundleMgr = UnitySingleton<BundleManager>.Ins;
         NetMgr = UnitySingleton<NetworkManager>.Ins;
         UIMgr = UnitySingleton<UIManager>.Ins;
         AudioMgr = UnitySingleton<AudioManager>.Ins;
@@ -42,7 +42,7 @@ public class GApp
 
     public static void Reset()
     {
-        AssetMgr.Init();
+        BundleMgr.Init();
         NetMgr.Init();
         UIMgr.Init();
         AudioMgr.Init();
