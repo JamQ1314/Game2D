@@ -2,17 +2,22 @@
 <BreakpointList/>
 <WatchList/>
 <ProjectUI>
-  <TreeState BaseX = "0" BaseY = "0" AlternativeItem = "LuaFolders#Assets#ABGame#LuaScripts#framwork#UI#UIWindow.lua">
+  <TreeState BaseX = "0" BaseY = "0" AlternativeItem = "LuaFolders#Assets#LuaScripts#framework#Net#protobuf#text_format.lua">
     <SelectedList>
-      <Selected Path = "LuaFolders#Assets#ABGame#LuaScripts#framwork#UI#UIManager.lua"/>
+      <Selected Path = "LuaFolders#Assets#LuaScripts#framework#Net#protobuf#protobuf.lua"/>
     </SelectedList>
     <ExpandedList>
       <Expanded Path = "LuaFolders"/>
       <Expanded Path = "LuaFolders#Assets"/>
       <Expanded Path = "LuaFolders#Assets#ABGame"/>
-      <Expanded Path = "LuaFolders#Assets#ABGame#LuaScripts"/>
-      <Expanded Path = "LuaFolders#Assets#ABGame#LuaScripts#framwork"/>
-      <Expanded Path = "LuaFolders#Assets#ABGame#LuaScripts#framwork#UI"/>
+      <Expanded Path = "LuaFolders#Assets#LuaScripts"/>
+      <Expanded Path = "LuaFolders#Assets#LuaScripts#framework"/>
+      <Expanded Path = "LuaFolders#Assets#LuaScripts#framework#Net"/>
+      <Expanded Path = "LuaFolders#Assets#LuaScripts#framework#Net#protobuf"/>
+      <Expanded Path = "LuaFolders#Assets#LuaScripts#ui"/>
+      <Expanded Path = "LuaFolders#Assets#Scripts"/>
+      <Expanded Path = "LuaFolders#Assets#Scripts#Resources"/>
+      <Expanded Path = "LuaFolders#Assets#xLua#Editor"/>
     </ExpandedList>
   </TreeState>
 </ProjectUI>
@@ -23,16 +28,16 @@
   Target = ""
   Replace = ""/>
 <MainWindow
-  X = "200"
-  Y = "145"
-  Width = "1280"
-  Height = "720"
+  X = "172"
+  Y = "126"
+  Width = "1358"
+  Height = "755"
   Maximized = "false"
-  LastCodeFilename = "E:/Project/Self/2017.2/Game2D/Assets/ABGame/LuaScripts/framwork/UI/UIManager.lua">
+  LastCodeFilename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/protobuf.lua">
   <DockingControl>
     <DockingNode DockingDirection = "Horizontal">
       <DockingNode DockingDirection = "None">
-        <DockingBlock Width = "294" Height = "603" DocumentStyle = "false">
+        <DockingBlock Width = "310" Height = "638" DocumentStyle = "false">
           <DockingCard
             Text = "Project"
             Tag = ""
@@ -47,29 +52,38 @@
       </DockingNode>
       <DockingNode DockingDirection = "Vertical">
         <DockingNode DockingDirection = "None">
-          <DockingBlock Width = "967" Height = "373" DocumentStyle = "true">
+          <DockingBlock Width = "1029" Height = "397" DocumentStyle = "true">
             <DockingCard
-              Text = "main.lua"
-              Tag = "E:/Project/Self/2017.2/Game2D/Assets/ABGame/LuaScripts/main.lua"
+              Text = "containers.lua"
+              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/containers.lua"
               ActivePage = "false"
-              ActivateTime = "81981244"
-              CaretLineIndex = "6"
-              CaretCodeCharIndex = "2"
+              ActivateTime = "345276795"
+              CaretLineIndex = "0"
+              CaretCodeCharIndex = "0"
+              BaseX = "0"
+              BaseY = "-330"/>
+            <DockingCard
+              Text = "LoginView.lua"
+              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginView.lua"
+              ActivePage = "false"
+              ActivateTime = "345285701"
+              CaretLineIndex = "0"
+              CaretCodeCharIndex = "0"
               BaseX = "0"
               BaseY = "0"/>
             <DockingCard
-              Text = "UIManager.lua"
-              Tag = "E:/Project/Self/2017.2/Game2D/Assets/ABGame/LuaScripts/framwork/UI/UIManager.lua"
+              Text = "protobuf.lua"
+              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/protobuf.lua"
               ActivePage = "true"
-              ActivateTime = "82014740"
-              CaretLineIndex = "12"
-              CaretCodeCharIndex = "27"
+              ActivateTime = "345328507"
+              CaretLineIndex = "33"
+              CaretCodeCharIndex = "63"
               BaseX = "0"
-              BaseY = "-3630"/>
+              BaseY = "-726"/>
           </DockingBlock>
         </DockingNode>
         <DockingNode DockingDirection = "None">
-          <DockingBlock Width = "967" Height = "223" DocumentStyle = "false">
+          <DockingBlock Width = "1029" Height = "234" DocumentStyle = "false">
             <DockingCard
               Text = "Output"
               Tag = ""

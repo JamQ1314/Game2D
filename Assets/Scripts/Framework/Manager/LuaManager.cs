@@ -11,6 +11,22 @@ public class LuaManager : MonoBehaviour
     public void Init()
     {
         luaEnv = new LuaEnv();
+        luaEnv.AddLoader(MyCustomLoader);
+    }
+
+    private static byte[] MyCustomLoader(ref string fileName)
+    {
+        if (GApp.GMode == DevelopMode.Debug)
+        {
+            fileName = fileName.Replace(".", "/") + ".lua";
+            var fullName = Application.dataPath + "/LuaScipts/" + fileName;
+            return File.ReadAllBytes(fullName);
+        }
+        else
+        {
+            return null;
+        }
+        
 
     }
 
@@ -20,11 +36,6 @@ public class LuaManager : MonoBehaviour
     }
 
 
-    enum RunModel
-    {
-        Dev,
-        Debug,
-    }
     public void LoadLua(string luaName)
     {
         if (GApp.GMode == DevelopMode.Debug)

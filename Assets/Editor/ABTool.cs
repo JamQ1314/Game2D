@@ -38,19 +38,6 @@ public class ABTool : EditorWindow
         GetFiles(abPath);
     }
 
-    [MenuItem("Tools/AssetBundle/Clear")]
-    static void Clear()
-    {
-        string[] markedAssets = AssetDatabase.GetAllAssetBundleNames();
-        for (int i = 0; i < markedAssets.Length; i++)
-        {
-            Debug.Log(markedAssets[i]);
-            AssetDatabase.RemoveAssetBundleName(markedAssets[i], true);
-        }
-
-    }
-
-
     [MenuItem("Tools/AssetBundle/Build")]
     static void Build()
     {
@@ -64,7 +51,17 @@ public class ABTool : EditorWindow
 
     }
 
+    [MenuItem("Tools/AssetBundle/Clear")]
+    static void Clear()
+    {
+        string[] markedAssets = AssetDatabase.GetAllAssetBundleNames();
+        for (int i = 0; i < markedAssets.Length; i++)
+        {
+            Debug.Log(markedAssets[i]);
+            AssetDatabase.RemoveAssetBundleName(markedAssets[i], true);
+        }
 
+    }
     private void OnGUI()
     {
         GUI.color = Color.cyan;

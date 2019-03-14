@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class LuaTool : Editor
 {
-
+    static string srcPath = Application.dataPath + "/LuaScripts";
+    static string dstPath = Application.dataPath + "/ABGame/lua";
     [MenuItem("Tools/Lua Copy")]
     static void Copy()
     {
-        string srcPath = Application.dataPath + "/LuaScripts";
-        string dstPath = Application.dataPath + "/ABGame/lua";
-
         if (!Directory.Exists(dstPath))
             Directory.CreateDirectory(dstPath);
         else
-        {
-            //清空文件夹
             ClearDir(dstPath);
-        }
-        
         //复制
+        CopyLuaScirpts(srcPath);
 
+        AssetDatabase.Refresh();
     }
 
+    /// <summary>
+    /// 清空ABGame/lua文件夹下所有文件
+    /// </summary>
+    /// <param name="dstPath"></param>
     static void ClearDir(string dstPath)
     {
         if (!Directory.Exists(dstPath))
@@ -44,9 +44,26 @@ public class LuaTool : Editor
         }
     }
 
-    static void CopyLuaScirpts(string srcPtah,string dstPath)
+    static void CopyLuaScirpts(string ptah)
     {
-        DirectoryInfo info = new DirectoryInfo(srcPtah);
-        
+        DirectoryInfo info = new DirectoryInfo(ptah);
+        foreach (var file in info.GetFiles())
+        {
+            if (file.Extension == ".meta")
+                continue;
+            var srcFullName = file.FullName.Replace("\\","/");
+            var dstFullName = srcFullName.Replace(srcPath, dstPath) + ".txt";
+            file.CopyTo(dstFullName);
+        }
+
+        foreach (var dir in info.GetDirectories())
+        {
+            Debug.Log("-------------------- " + dir.FullName);
+
+            var srcDirName = dir.FullName.Replace("\\","/");
+            var dstDirName = srcDirName.Replace(srcPath, dstPath);
+            Directory.CreateDirectory(dstDirName);
+            CopyLuaScirpts(srcDirName);
+        }
     }
 }
