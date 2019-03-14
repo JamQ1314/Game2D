@@ -8,13 +8,18 @@ using XLua;
 
 public class DoTest : MonoBehaviour
 {
+
     private LuaEnv luaenv = new LuaEnv();
 
 	// Use this for initialization
     void Start()
     {
-        var go = Instantiate(
-            AssetDatabase.LoadAssetAtPath<GameObject>("Assets/ABGame/prefabs/ui/login/LoginView.prefab"));
+//        var go = Instantiate(
+//            AssetDatabase.LoadAssetAtPath<GameObject>("Assets/ABGame/prefabs/ui/login/LoginView.prefab"));
+
+        var ast = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/ABGame/LuaScripts/main.lua");
+        luaenv.DoString(ast.bytes);
+
     }
 	
 	// Update is called once per frame

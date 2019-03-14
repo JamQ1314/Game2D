@@ -1,0 +1,113 @@
+<GlobalConfig CodeFontSize = "22"/>
+<BreakpointList/>
+<WatchList/>
+<ProjectUI>
+  <TreeState BaseX = "0" BaseY = "0" AlternativeItem = "LuaFolders#Assets#ABGame#LuaScripts#framwork#UI#UIWindow.lua">
+    <SelectedList>
+      <Selected Path = "LuaFolders#Assets#ABGame#LuaScripts#framwork#UI#UIManager.lua"/>
+    </SelectedList>
+    <ExpandedList>
+      <Expanded Path = "LuaFolders"/>
+      <Expanded Path = "LuaFolders#Assets"/>
+      <Expanded Path = "LuaFolders#Assets#ABGame"/>
+      <Expanded Path = "LuaFolders#Assets#ABGame#LuaScripts"/>
+      <Expanded Path = "LuaFolders#Assets#ABGame#LuaScripts#framwork"/>
+      <Expanded Path = "LuaFolders#Assets#ABGame#LuaScripts#framwork#UI"/>
+    </ExpandedList>
+  </TreeState>
+</ProjectUI>
+<FindAnReplaceUI
+  Pattern = ""
+  MatchCase = "false"
+  MatchWholeWord = "false"
+  Target = ""
+  Replace = ""/>
+<MainWindow
+  X = "200"
+  Y = "145"
+  Width = "1280"
+  Height = "720"
+  Maximized = "false"
+  LastCodeFilename = "E:/Project/Self/2017.2/Game2D/Assets/ABGame/LuaScripts/framwork/UI/UIManager.lua">
+  <DockingControl>
+    <DockingNode DockingDirection = "Horizontal">
+      <DockingNode DockingDirection = "None">
+        <DockingBlock Width = "294" Height = "603" DocumentStyle = "false">
+          <DockingCard
+            Text = "Project"
+            Tag = ""
+            ActivePage = "true"
+            ActivateTime = "0"/>
+          <DockingCard
+            Text = "Outline"
+            Tag = ""
+            ActivePage = "false"
+            ActivateTime = "0"/>
+        </DockingBlock>
+      </DockingNode>
+      <DockingNode DockingDirection = "Vertical">
+        <DockingNode DockingDirection = "None">
+          <DockingBlock Width = "967" Height = "373" DocumentStyle = "true">
+            <DockingCard
+              Text = "main.lua"
+              Tag = "E:/Project/Self/2017.2/Game2D/Assets/ABGame/LuaScripts/main.lua"
+              ActivePage = "false"
+              ActivateTime = "81981244"
+              CaretLineIndex = "6"
+              CaretCodeCharIndex = "2"
+              BaseX = "0"
+              BaseY = "0"/>
+            <DockingCard
+              Text = "UIManager.lua"
+              Tag = "E:/Project/Self/2017.2/Game2D/Assets/ABGame/LuaScripts/framwork/UI/UIManager.lua"
+              ActivePage = "true"
+              ActivateTime = "82014740"
+              CaretLineIndex = "12"
+              CaretCodeCharIndex = "27"
+              BaseX = "0"
+              BaseY = "-3630"/>
+          </DockingBlock>
+        </DockingNode>
+        <DockingNode DockingDirection = "None">
+          <DockingBlock Width = "967" Height = "223" DocumentStyle = "false">
+            <DockingCard
+              Text = "Output"
+              Tag = ""
+              ActivePage = "true"
+              ActivateTime = "0"/>
+            <DockingCard
+              Text = "Call Stack"
+              Tag = ""
+              ActivePage = "false"
+              ActivateTime = "0"/>
+            <DockingCard
+              Text = "Locals"
+              Tag = ""
+              ActivePage = "false"
+              ActivateTime = "0"/>
+            <DockingCard
+              Text = "Globals"
+              Tag = ""
+              ActivePage = "false"
+              ActivateTime = "0"/>
+            <DockingCard
+              Text = "Watches"
+              Tag = ""
+              ActivePage = "false"
+              ActivateTime = "0"/>
+            <DockingCard
+              Text = "Autos"
+              Tag = ""
+              ActivePage = "false"
+              ActivateTime = "0"/>
+            <DockingCard
+              Text = "Breakpoints"
+              Tag = ""
+              ActivePage = "false"
+              ActivateTime = "0"/>
+          </DockingBlock>
+        </DockingNode>
+      </DockingNode>
+    </DockingNode>
+  </DockingControl>
+</MainWindow>

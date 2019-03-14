@@ -25,11 +25,10 @@ public class BundleManager : ManagerBase
         dictAssets = new Dictionary<string, string>();
         lCacheDenpendences = new List<AssetBundle>();
 
-#if UNITY_EDITOR
-        LoadLocalAseet();
-#else
-        LoadLocalManifest();
-#endif
+        if(GApp.GMode == DevelopMode.Debug)
+            LoadLocalAseet();
+        else
+            LoadLocalManifest();
     }
     /// <summary>
     /// 加载总依赖文件
@@ -52,16 +51,17 @@ public class BundleManager : ManagerBase
         }
         //UnityTools.LogDictionary(dictAssets);
     }
-
+    /// <summary>
+    /// Editor 模式 读取文件
+    /// </summary>
     private void LoadLocalAseet()
     {
         string rootPtah = Application.dataPath + "/ABGame";
-        print("------------------------ " +rootPtah);
         LoadLocalAseetBase(rootPtah);
-        UnityTools.LogDictionary(dictAssets);
+        //UnityTools.LogDictionary(dictAssets);
     }
 
-    private void LoadLocalAseetBase(string path)
+    private void LoadLocalAseetBase(string path,bool isLua = false)
     {
         DirectoryInfo info = new DirectoryInfo(path);
 
@@ -69,19 +69,21 @@ public class BundleManager : ManagerBase
         {
             if (file.Extension != ".meta")
             {
-                string rootPtah = Application.dataPath + "/ABGame";
-                var fullName = file.FullName.Replace("\\","/");
-                var relativeName = fullName.Replace(rootPtah,"");
-                dictAssets.Add(file.Name, relativeName);
+                string shortName = file.Name;
+                if (!isLua)
+                    shortName = shortName.Split('.')[0];
+                dictAssets.Add(shortName, file.FullName);
             }
         }
 
         foreach (var dir in info.GetDirectories())
         {
-            LoadLocalAseetBase(dir.FullName);
+            if(dir.Name == "LuaScripts")
+                LoadLocalAseetBase(dir.FullName,true);
+            else
+                LoadLocalAseetBase(dir.FullName, isLua);
         }
     }
-
     /// <summary>
     /// 加载资源
     /// </summary>
@@ -102,7 +104,7 @@ public class BundleManager : ManagerBase
         {
             foreach (string dp in dps)
             {
-                Debug.Log(string.Format("正在加载资源{0}依赖：{1}", name, dp));
+                //Debug.Log(string.Format("正在加载资源{0}依赖：{1}", name, dp));
                 LoadAssetBundle(dp);
             }
         }
@@ -116,15 +118,20 @@ public class BundleManager : ManagerBase
     /// <returns></returns>
     public GameObject LoadAndInstantiate(string name)
     {
-#if UNITY_EDITOR
-        string abName = dictAssets[name.ToLower()];
-        return (GameObject)Instantiate(AssetDatabase.LoadAssetAtPath<Object>(""));
-#else
-        Object o = Load<Object>(name);
-        GameObject go = (GameObject)Instantiate(o);
-        Invoke("Release", 3.0f);
-        return go;
-#endif
+        if (GApp.GMode == DevelopMode.Debug)
+        {
+            string fullName = dictAssets[name].Replace("\\", "/");
+            string rootPtah = Application.dataPath + "/ABGame";
+            var relativeName = fullName.Replace(rootPtah, "");
+            return (GameObject)Instantiate(AssetDatabase.LoadAssetAtPath<Object>(relativeName));
+        }
+        else
+        {
+            Object o = Load<Object>(name);
+            GameObject go = (GameObject)Instantiate(o);
+            Invoke("Release", 3.0f);
+            return go;
+        }
     }
 
     /// <summary>

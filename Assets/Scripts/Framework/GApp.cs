@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using XLua;
 
-
+public enum DevelopMode
+{
+    Debug,//开发模式
+    Release //发布模式
+}
 [LuaCallCSharp]
 public class GApp
 {
+    public static DevelopMode GMode = DevelopMode.Debug;
     /// <summary>
     /// AssetBundle管理器
     /// </summary>

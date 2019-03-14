@@ -11,15 +11,7 @@ public class LuaManager : MonoBehaviour
     public void Init()
     {
         luaEnv = new LuaEnv();
-#if UNITY_EDITOR
-        luaEnv.AddLoader((ref string fileName) =>
-        {
-            fileName = fileName.Replace(".", "/") + ".lua";
-            string relativePtah = Application.dataPath + "/ABGame/LuaScripts";
-            string absPath = relativePtah + "/" + fileName;
-            return File.ReadAllBytes(absPath);
-        });
-#endif
+
     }
 
     public void DoString(string luaStr)
@@ -35,13 +27,17 @@ public class LuaManager : MonoBehaviour
     }
     public void LoadLua(string luaName)
     {
-#if UNITY_EDITOR
-        luaEnv.DoString(string.Format("require '{0}'", luaName));
-#else
-        TextAsset luaScript = GApp.BundleMgr.Load<TextAsset>(luaName + ".lua");
-        if (luaScript != null)
-            luaEnv.DoString(luaScript.text);
-#endif
+        if (GApp.GMode == DevelopMode.Debug)
+        {
+            string relativePtah = Application.dataPath + "/ABGame/LuaScripts";
+            luaEnv.DoString(string.Format("require '{0}'", luaName));
+        }
+        else
+        {
+            TextAsset luaScript = GApp.BundleMgr.Load<TextAsset>(luaName + ".lua");
+            if (luaScript != null)
+                luaEnv.DoString(luaScript.text);
+        }
 
     }
 

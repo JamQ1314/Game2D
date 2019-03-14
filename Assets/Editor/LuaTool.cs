@@ -1,33 +1,52 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-public class LuaTool : Editor {
-    
-    [MenuItem("Tools/xlua copy")]
+public class LuaTool : Editor
+{
+
+    [MenuItem("Tools/Lua Copy")]
     static void Copy()
     {
-        string srcPath = Application.dataPath + "/Scripts/Resources";
+        string srcPath = Application.dataPath + "/LuaScripts";
         string dstPath = Application.dataPath + "/ABGame/lua";
+
         if (!Directory.Exists(dstPath))
             Directory.CreateDirectory(dstPath);
         else
         {
-            DirectoryInfo dstInfo = new DirectoryInfo(dstPath);
-            for (int i = 0; i < dstInfo.GetFiles().Length; i++)
+            //清空文件夹
+            ClearDir(dstPath);
+        }
+        
+        //复制
+
+    }
+
+    static void ClearDir(string dstPath)
+    {
+        if (!Directory.Exists(dstPath))
+            return;
+        DirectoryInfo dir = new DirectoryInfo(dstPath);
+        FileSystemInfo[] fileinfo = dir.GetFileSystemInfos(); //返回目录中所有文件和子目录
+        foreach (FileSystemInfo i in fileinfo)
+        {
+            if (i is DirectoryInfo) //判断是否文件夹
             {
-                File.Delete(dstInfo.GetFiles()[i].FullName);
+                DirectoryInfo subdir = new DirectoryInfo(i.FullName);
+                subdir.Delete(true); //删除子目录和文件
+            }
+            else
+            {
+                File.Delete(i.FullName); //删除指定文件
             }
         }
-        AssetDatabase.Refresh();
+    }
 
-        DirectoryInfo srcInfo = new DirectoryInfo(srcPath);
-        for (int i = 0; i < srcInfo.GetFiles().Length; i++)
-        {
-            var file = srcInfo.GetFiles()[i];
-            File.Copy(file.FullName, dstPath + "/" + file.Name);
-        }
-
-        AssetDatabase.Refresh();
+    static void CopyLuaScirpts(string srcPtah,string dstPath)
+    {
+        DirectoryInfo info = new DirectoryInfo(srcPtah);
+        
     }
 }
