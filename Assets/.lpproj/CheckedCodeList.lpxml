@@ -120,4 +120,6 @@
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/ABGame/LuaScripts/framework/Net/protobuf/wire_format.lua" ModifyTime = "1552564683045"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/ABGame/LuaScripts/ui/LoginView.lua" ModifyTime = "1552564683060"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/ABGame/LuaScripts/framework/Net/protobuf/protobuf.lua" ModifyTime = "1552564683035"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/ABGame/lua/ui/LoginCtrl.lua.txt" ModifyTime = "1552568601289"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua" ModifyTime = "1552650621945"/>
 </CheckedCodeList>

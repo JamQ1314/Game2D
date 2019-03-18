@@ -2,9 +2,9 @@
 <BreakpointList/>
 <WatchList/>
 <ProjectUI>
-  <TreeState BaseX = "0" BaseY = "0" AlternativeItem = "LuaFolders#Assets#LuaScripts#framework#Net#protobuf#text_format.lua">
+  <TreeState BaseX = "0" BaseY = "0" AlternativeItem = "LuaFolders#Assets#LuaScripts#ui#LoginView.lua">
     <SelectedList>
-      <Selected Path = "LuaFolders#Assets#LuaScripts#framework#Net#protobuf#protobuf.lua"/>
+      <Selected Path = "LuaFolders#Assets#LuaScripts#ui#LoginCtrl.lua"/>
     </SelectedList>
     <ExpandedList>
       <Expanded Path = "LuaFolders"/>
@@ -12,7 +12,6 @@
       <Expanded Path = "LuaFolders#Assets#ABGame"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts#framework"/>
-      <Expanded Path = "LuaFolders#Assets#LuaScripts#framework#Net"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts#framework#Net#protobuf"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts#ui"/>
       <Expanded Path = "LuaFolders#Assets#Scripts"/>
@@ -33,11 +32,11 @@
   Width = "1358"
   Height = "755"
   Maximized = "false"
-  LastCodeFilename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/protobuf.lua">
+  LastCodeFilename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua">
   <DockingControl>
     <DockingNode DockingDirection = "Horizontal">
       <DockingNode DockingDirection = "None">
-        <DockingBlock Width = "310" Height = "638" DocumentStyle = "false">
+        <DockingBlock Width = "309" Height = "638" DocumentStyle = "false">
           <DockingCard
             Text = "Project"
             Tag = ""
@@ -52,7 +51,7 @@
       </DockingNode>
       <DockingNode DockingDirection = "Vertical">
         <DockingNode DockingDirection = "None">
-          <DockingBlock Width = "1029" Height = "397" DocumentStyle = "true">
+          <DockingBlock Width = "1030" Height = "397" DocumentStyle = "true">
             <DockingCard
               Text = "containers.lua"
               Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/containers.lua"
@@ -66,7 +65,7 @@
               Text = "LoginView.lua"
               Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginView.lua"
               ActivePage = "false"
-              ActivateTime = "345285701"
+              ActivateTime = "331950"
               CaretLineIndex = "0"
               CaretCodeCharIndex = "0"
               BaseX = "0"
@@ -74,16 +73,34 @@
             <DockingCard
               Text = "protobuf.lua"
               Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/protobuf.lua"
-              ActivePage = "true"
-              ActivateTime = "345328507"
+              ActivePage = "false"
+              ActivateTime = "203568"
               CaretLineIndex = "33"
               CaretCodeCharIndex = "63"
               BaseX = "0"
               BaseY = "-726"/>
+            <DockingCard
+              Text = "LoginCtrl.lua"
+              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua"
+              ActivePage = "true"
+              ActivateTime = "55471750"
+              CaretLineIndex = "9"
+              CaretCodeCharIndex = "4"
+              BaseX = "0"
+              BaseY = "0"/>
+            <DockingCard
+              Text = "main.lua"
+              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/main.lua"
+              ActivePage = "false"
+              ActivateTime = "329501"
+              CaretLineIndex = "6"
+              CaretCodeCharIndex = "5"
+              BaseX = "0"
+              BaseY = "0"/>
           </DockingBlock>
         </DockingNode>
         <DockingNode DockingDirection = "None">
-          <DockingBlock Width = "1029" Height = "234" DocumentStyle = "false">
+          <DockingBlock Width = "1030" Height = "234" DocumentStyle = "false">
             <DockingCard
               Text = "Output"
               Tag = ""
