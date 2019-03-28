@@ -88,8 +88,8 @@
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framwork/Net/protobuf/text_format.lua" ModifyTime = "1552564683037"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framwork/Net/protobuf/type_checkers.lua" ModifyTime = "1552564683039"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framwork/Net/protobuf/wire_format.lua" ModifyTime = "1552564683045"/>
-  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/main.lua" ModifyTime = "1552564683050"/>
-  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginView.lua" ModifyTime = "1552564683060"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/main.lua" ModifyTime = "1553562938084"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginView.lua" ModifyTime = "1553600024120"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framwork/Net/protobuf/protobuf.lua" ModifyTime = "1552564683035"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/descriptor.lua" ModifyTime = "1552564683023"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/containers.lua" ModifyTime = "1552564683019"/>
@@ -121,5 +121,11 @@
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/ABGame/LuaScripts/ui/LoginView.lua" ModifyTime = "1552564683060"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/ABGame/LuaScripts/framework/Net/protobuf/protobuf.lua" ModifyTime = "1552564683035"/>
   <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/ABGame/lua/ui/LoginCtrl.lua.txt" ModifyTime = "1552568601289"/>
-  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua" ModifyTime = "1552650621945"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua" ModifyTime = "1553681272037"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/Scene/0/Resources/main.lua.txt" ModifyTime = "1553417354582"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/Scene/0/Resources/TestMain.lua.txt" ModifyTime = "1553681161490"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/Net/Protobuf/acc_pb.lua" ModifyTime = "1553679597968"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/Net/Protobuf/person_pb.lua" ModifyTime = "1553679603479"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/Scene/0/Resources/acc_pb.lua" ModifyTime = "1553679597968"/>
+  <CheckedCodeItem Filename = "E:/Projects/unity/2017/Game2D/Assets/Scene/0/Resources/acc_pb.lua.txt" ModifyTime = "1553679597968"/>
 </CheckedCodeList>

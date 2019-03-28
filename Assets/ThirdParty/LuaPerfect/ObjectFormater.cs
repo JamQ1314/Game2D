@@ -3,6 +3,7 @@
 //#define SLUA
 //#define TOLUA
 //#define ULUA
+//#define PANDORA
 
 //ToLua用户需要手动在Editor/Custom/CustomSettings.cs的customTypeList数组中添加:
 //ULua用户需要手动在Editor/WrapFile.cs的customTypeList数组中添加:
@@ -22,6 +23,9 @@ using XLua;
 #endif
 #if SLUA
 using SLua;
+#endif
+#if PANDORA
+using com.tencent.pandora;
 #endif
 
 namespace LuaPerfect
@@ -74,7 +78,7 @@ namespace LuaPerfect
 #if XLUA
     [LuaCallCSharp]
 #endif
-#if SLUA
+#if SLUA || PANDORA
     [CustomLuaClass]
 #endif
     //考虑改成struct
@@ -91,7 +95,7 @@ namespace LuaPerfect
 #if XLUA
     [LuaCallCSharp]
 #endif
-#if SLUA
+#if SLUA || PANDORA
     [CustomLuaClass]
 #endif
     public class ObjectItem
@@ -191,7 +195,7 @@ namespace LuaPerfect
 #if XLUA
     [LuaCallCSharp]
 #endif
-#if SLUA
+#if SLUA || PANDORA
     [CustomLuaClass]
 #endif
     public class ObjectFormater

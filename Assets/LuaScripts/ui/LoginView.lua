@@ -20,8 +20,7 @@ end
 
 function  LoginView.start()
     print("LoginView:start")
-   CS.GApp.UIMgr:GetGameObject("wxloginbtn"):GetComponent("UnityEngine.UI.Button").onClick:AddListener(LoginView.wxlogin)
-   CS.GApp.UIMgr:GetGameObject("qqloginbtn"):GetComponent("UnityEngine.UI.Button").onClick:AddListener(LoginView.qqlogin)
+  
 end
 
 function  LoginView.update()
@@ -32,21 +31,17 @@ function  LoginView.ondestroy()
 
 end
 
-function LoginView.wxlogin()
-    LoginView.NetConn()
-    print("wxlogin");
-end
-function LoginView.qqlogin()
-    LoginView.NetConn()
-end
-
-function LoginView.NetConn()
-    require('NetDefines')
-    --CS.GApp.NetMgr:Connect(EnumNetEvent.Common,"127.0.0.1",5555)
-
-    CS.GApp.SSDKMgr:QQLogin()
-end
 
 function LoginView.open(tb)
-    print("call back LoginView.open");
+	print("call back LoginView.open");
 end
+
+function LoginView.AccLoginPanel()
+	print("显示账号登陆界面")
+	goAccLoginPanel = transform:Find("bg/accLogin").gameObject
+	goAccLoginPanel:SetActive(true)
+end
+	
+
+
+

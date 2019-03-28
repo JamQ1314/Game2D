@@ -17,8 +17,8 @@ public class DoTest : MonoBehaviour
 //        var go = Instantiate(
 //            AssetDatabase.LoadAssetAtPath<GameObject>("Assets/ABGame/prefabs/ui/login/LoginView.prefab"));
 
-        var ast = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/ABGame/LuaScripts/main.lua");
-        luaenv.DoString(ast.bytes);
+//        var ast = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/ABGame/LuaScripts/main.lua");
+//        luaenv.DoString(ast.bytes);
 
     }
 	

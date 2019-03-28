@@ -5,21 +5,27 @@ using UnityEngine;
 using XLua;
 
 [LuaCallCSharp]
-public class LuaManager : MonoBehaviour
+public class LuaManager :ManagerBase
 {
-    public LuaEnv luaEnv;
-    public void Init()
+
+    private LuaEnv luaEnv;
+
+    public override void Init()
     {
         luaEnv = new LuaEnv();
         luaEnv.AddLoader(MyCustomLoader);
+        luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadPb);
+
+        luaEnv.DoString("require 'main'");
     }
 
     private static byte[] MyCustomLoader(ref string fileName)
     {
-        if (GApp.GMode == DevelopMode.Debug)
+        if (GApp.Ins.GMode == GameMode.Debug)
         {
             fileName = fileName.Replace(".", "/") + ".lua";
-            var fullName = Application.dataPath + "/LuaScipts/" + fileName;
+            var fullName = Application.dataPath + "/LuaScripts/" + fileName;
+
             return File.ReadAllBytes(fullName);
         }
         else
@@ -30,22 +36,22 @@ public class LuaManager : MonoBehaviour
 
     }
 
-    public void DoString(string luaStr)
+    public LuaEnv GetLuaEnv()
     {
-        luaEnv.DoString(luaStr);
+        return luaEnv;
     }
 
 
     public void LoadLua(string luaName)
     {
-        if (GApp.GMode == DevelopMode.Debug)
+        if (GApp.Ins.GMode == GameMode.Debug)
         {
-            string relativePtah = Application.dataPath + "/ABGame/LuaScripts";
+            //string relativePtah = Application.dataPath + "/ABGame/LuaScripts";
             luaEnv.DoString(string.Format("require '{0}'", luaName));
         }
         else
         {
-            TextAsset luaScript = GApp.BundleMgr.Load<TextAsset>(luaName + ".lua");
+            TextAsset luaScript = GApp.AssetLoaderMgr.Load<TextAsset>(luaName + ".lua");
             if (luaScript != null)
                 luaEnv.DoString(luaScript.text);
         }

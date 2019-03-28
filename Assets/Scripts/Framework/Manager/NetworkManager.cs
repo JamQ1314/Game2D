@@ -29,16 +29,24 @@ public class NetworkManager : ManagerBase
         if (ConnSockets.ContainsKey(socketID))
             nSocket = ConnSockets[socketID];
         else
+        {
             nSocket = new NSocket(socketID);
+            ConnSockets.Add(socketID, nSocket);
+        }
         nSocket.ConnAsync(host, port);
     }
 
-    public void Send(ushort main_id, ushort sub_id, byte[] data, Action<Hashtable> callback = null, Hashtable hashtable = null)
+    public void Test(byte[] data)
     {
-        if (!ConnSockets.ContainsKey(main_id))
+        Debug.Log("NetworkManager !" + data);
+    }
+
+    public void Send(int socketID,int main_id, int sub_id, byte[] data, Action<Hashtable> callback = null, Hashtable hashtable = null)
+    {
+        if (!ConnSockets.ContainsKey(socketID))
             return;
-        NSocket nSocket =  ConnSockets[main_id];
-        nSocket.SendAsync(main_id, sub_id, data, callback, hashtable);
+        NSocket nSocket =  ConnSockets[socketID];
+        nSocket.SendAsync((ushort)main_id, (ushort)sub_id, data, callback, hashtable);
     }
 
     public void Close(int socketID)

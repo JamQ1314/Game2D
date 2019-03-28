@@ -25,7 +25,7 @@ public class NSocket
     public NSocket(int id)
     {
         sid = id;
-        Debug.Log(sid);
+        Debug.Log("Socket Connect , Socket ID : " + sid);
 
         socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
@@ -126,6 +126,7 @@ public class NSocket
         int nSendSize = nHeadSize;
         if (data != null)
             nSendSize += data.Length;
+        tcpHead.Info.Buffer_Size = (ushort)nSendSize;
 
         byte[] SendBuffer = new byte[nSendSize];
         var Headbuffer = NetDefine.StruToBytes(tcpHead);

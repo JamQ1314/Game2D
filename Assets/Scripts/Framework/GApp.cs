@@ -3,19 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using XLua;
 
-public enum DevelopMode
+[LuaCallCSharp]
+public enum GameMode
 {
     Debug,//开发模式
     Release //发布模式
 }
+
 [LuaCallCSharp]
-public class GApp
+public class GApp :MonoBehaviour
 {
-    public static DevelopMode GMode = DevelopMode.Debug;
+    private static GApp ins = null;
+
+    public static GApp Ins
+    {
+        get { return FindObjectOfType<GApp>(); }
+    }
+
+
+    public GameMode GMode = GameMode.Debug;
+
+    public int GetMode()
+    {
+        return (int) GMode;
+    }
     /// <summary>
     /// AssetBundle管理器
     /// </summary>
-    public static BundleManager BundleMgr = null;
+    public static AssetLoaderManager AssetLoaderMgr = null;
     /// <summary>
     /// 网络管理器
     /// </summary>
@@ -29,15 +44,34 @@ public class GApp
     /// </summary>
     public static AudioManager AudioMgr = null;
     /// <summary>
-    /// 热更新管理器
+    /// Lua管理器
     /// </summary>
     public static LuaManager LuaMgr = null;
+    /// <summary>
+    /// 
+    /// </summary>
+    private void Start()
+    {
+        DoUpdate();
+    }
 
-
-    #region mono 方法
+    private void DoUpdate()
+    {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.LogError(" Net Disconnect");
+            return;
+        }
+        //先更新资源
+        GetComponent<AssetUpdateHelper>().StartUpdateAssets(delegate
+        {
+            Init();
+            Reset();
+        });
+    }
     public static void Init()
     {
-        BundleMgr = UnitySingleton<BundleManager>.Ins;
+        AssetLoaderMgr = UnitySingleton<AssetLoaderManager>.Ins;
         NetMgr = UnitySingleton<NetworkManager>.Ins;
         UIMgr = UnitySingleton<UIManager>.Ins;
         AudioMgr = UnitySingleton<AudioManager>.Ins;
@@ -47,11 +81,16 @@ public class GApp
 
     public static void Reset()
     {
-        BundleMgr.Init();
+        AssetLoaderMgr.Init();
         NetMgr.Init();
         UIMgr.Init();
         AudioMgr.Init();
         LuaMgr.Init();
     }
-#endregion
+
+
+    public static void Test()
+    {
+        print("GApp.Test() ");
+    }
 }

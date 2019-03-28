@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ManagerBase : MonoBehaviour
 {
+    protected Dictionary<string, GameObject> dictGameObjects;
     /// <summary>
     /// 管理器初始化函数
     /// </summary>
@@ -14,8 +15,6 @@ public class ManagerBase : MonoBehaviour
     }
 
     #region 缓存注册物体
-
-    protected Dictionary<string, GameObject> dictGameObjects;
 
     public void RegisterGameObject(GameObject go)
     {

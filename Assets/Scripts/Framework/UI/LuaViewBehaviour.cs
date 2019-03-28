@@ -21,7 +21,7 @@ public class LuaViewBehaviour : MonoBehaviour {
     {
         GApp.UIMgr.RegisterGameObject(gameObject);
 
-        luaenv = GApp.LuaMgr.luaEnv;
+        luaenv = GApp.LuaMgr.GetLuaEnv();
         scriptEnv = luaenv.NewTable();
         LuaTable meta = luaenv.NewTable();
         meta.Set("__index", luaenv.Global);

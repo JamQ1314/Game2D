@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XLua;
 
+[LuaCallCSharp]
 public class UIManager : ManagerBase
 {
     private Dictionary<string, GameObject> dictOpenedUIs;
@@ -14,37 +15,50 @@ public class UIManager : ManagerBase
         dictOpenedUIs = new Dictionary<string, GameObject>();
     }
 
+
+    public void Create(string uiName,Action onCreate = null)
+    {
+        if (dictGameObjects.ContainsKey(uiName))
+            return;
+        GameObject ui = GApp.AssetLoaderMgr.LoadAsset(uiName);
+        if (onCreate != null)
+            onCreate();
+
+        var shortName = uiName.Substring(uiName.LastIndexOf('.')+1);
+        dictOpenedUIs.Add(shortName, ui);
+    }
     /// <summary>
     /// 打开UI
     /// </summary>
-    /// <param name="name"></param>
-    public void Open(string  name)
+    /// <param uiName="name"></param>
+    public void Open(string  uiName)
     {
-        Open(name, null);
+        Open(uiName, null);
     }
 
     /// <summary>
     /// 打开UI，附带Hashtable参数
     /// </summary>
-    /// <param name="name"></param>
+    /// <param name="uiName"></param>
     /// <param name="hashtable"></param>
-    public void Open(string name, LuaTable luaTable)
+    public void Open(string uiName, LuaTable luaTable)
     {
-        GameObject ui = GetGameObject(name);
+        print("uimanager open");
+
+        GameObject ui = GetGameObject(uiName);
         if (ui == null)
         {
-            //先加载Lua再加载UI
-            GApp.LuaMgr.LoadLua(name);
-            ui = GApp.BundleMgr.LoadAndInstantiate(name);
+            ui = GApp.AssetLoaderMgr.LoadAsset(uiName);
         }
-        ui.GetComponent<LuaViewBehaviour>().Open(luaTable);
-        dictOpenedUIs.Add(name, ui);
+        //ui.GetComponent<LuaViewBehaviour>().Open(luaTable);
+        dictOpenedUIs.Add(uiName, ui);
     }
 
-    public void UIMgrHello()
+    public void Test()
     {
-        Debug.Log("UIMgrHello");
+        print("uimanager test");
     }
+
     /// <summary>
     /// 关闭单个UI
     /// </summary>

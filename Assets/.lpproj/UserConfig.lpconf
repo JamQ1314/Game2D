@@ -12,8 +12,12 @@
       <Expanded Path = "LuaFolders#Assets#ABGame"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts#framework"/>
+      <Expanded Path = "LuaFolders#Assets#LuaScripts#framework#Net"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts#framework#Net#protobuf"/>
       <Expanded Path = "LuaFolders#Assets#LuaScripts#ui"/>
+      <Expanded Path = "LuaFolders#Assets#Scene"/>
+      <Expanded Path = "LuaFolders#Assets#Scene#0"/>
+      <Expanded Path = "LuaFolders#Assets#Scene#0#Resources"/>
       <Expanded Path = "LuaFolders#Assets#Scripts"/>
       <Expanded Path = "LuaFolders#Assets#Scripts#Resources"/>
       <Expanded Path = "LuaFolders#Assets#xLua#Editor"/>
@@ -27,16 +31,16 @@
   Target = ""
   Replace = ""/>
 <MainWindow
-  X = "172"
-  Y = "126"
+  X = "-9"
+  Y = "124"
   Width = "1358"
   Height = "755"
-  Maximized = "false"
+  Maximized = "true"
   LastCodeFilename = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua">
   <DockingControl>
     <DockingNode DockingDirection = "Horizontal">
       <DockingNode DockingDirection = "None">
-        <DockingBlock Width = "309" Height = "638" DocumentStyle = "false">
+        <DockingBlock Width = "426" Height = "923" DocumentStyle = "false">
           <DockingCard
             Text = "Project"
             Tag = ""
@@ -51,56 +55,47 @@
       </DockingNode>
       <DockingNode DockingDirection = "Vertical">
         <DockingNode DockingDirection = "None">
-          <DockingBlock Width = "1030" Height = "397" DocumentStyle = "true">
+          <DockingBlock Width = "1475" Height = "584" DocumentStyle = "true">
             <DockingCard
-              Text = "containers.lua"
-              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/containers.lua"
+              Text = "main.lua"
+              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/main.lua"
               ActivePage = "false"
-              ActivateTime = "345276795"
-              CaretLineIndex = "0"
+              ActivateTime = "158703380"
+              CaretLineIndex = "13"
               CaretCodeCharIndex = "0"
+              BaseX = "0"
+              BaseY = "0"/>
+            <DockingCard
+              Text = "LoginCtrl.lua"
+              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua"
+              ActivePage = "true"
+              ActivateTime = "158957089"
+              CaretLineIndex = "30"
+              CaretCodeCharIndex = "30"
               BaseX = "0"
               BaseY = "-330"/>
             <DockingCard
               Text = "LoginView.lua"
               Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginView.lua"
               ActivePage = "false"
-              ActivateTime = "331950"
-              CaretLineIndex = "0"
-              CaretCodeCharIndex = "0"
+              ActivateTime = "158576994"
+              CaretLineIndex = "41"
+              CaretCodeCharIndex = "32"
               BaseX = "0"
-              BaseY = "0"/>
+              BaseY = "-594"/>
             <DockingCard
               Text = "protobuf.lua"
               Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/framework/Net/protobuf/protobuf.lua"
               ActivePage = "false"
-              ActivateTime = "203568"
-              CaretLineIndex = "33"
-              CaretCodeCharIndex = "63"
+              ActivateTime = "158575650"
+              CaretLineIndex = "32"
+              CaretCodeCharIndex = "11"
               BaseX = "0"
-              BaseY = "-726"/>
-            <DockingCard
-              Text = "LoginCtrl.lua"
-              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/ui/LoginCtrl.lua"
-              ActivePage = "true"
-              ActivateTime = "55471750"
-              CaretLineIndex = "9"
-              CaretCodeCharIndex = "4"
-              BaseX = "0"
-              BaseY = "0"/>
-            <DockingCard
-              Text = "main.lua"
-              Tag = "E:/Projects/unity/2017/Game2D/Assets/LuaScripts/main.lua"
-              ActivePage = "false"
-              ActivateTime = "329501"
-              CaretLineIndex = "6"
-              CaretCodeCharIndex = "5"
-              BaseX = "0"
-              BaseY = "0"/>
+              BaseY = "-264"/>
           </DockingBlock>
         </DockingNode>
         <DockingNode DockingDirection = "None">
-          <DockingBlock Width = "1030" Height = "234" DocumentStyle = "false">
+          <DockingBlock Width = "1475" Height = "332" DocumentStyle = "false">
             <DockingCard
               Text = "Output"
               Tag = ""
