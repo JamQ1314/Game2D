@@ -63,7 +63,9 @@ public class GApp :MonoBehaviour
             return;
         }
         //先更新资源
-        GetComponent<AssetUpdateHelper>().StartUpdateAssets(delegate
+        var help = GetComponent<AssetUpdateHelper>();
+        help.Init();
+        help.StartUpdateAssets(delegate
         {
             Init();
             Reset();

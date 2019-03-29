@@ -58,7 +58,6 @@ public class AssetUpdateHelper : MonoBehaviour
 
     private void Awake()
     {
-        Init();
     }
 
     void Start()
@@ -75,7 +74,8 @@ public class AssetUpdateHelper : MonoBehaviour
     }
     public void Init()
     {
-        uiRes = FindObjectOfType<UIResUpdate>();
+        uiRes = GetComponentInChildren<UIResUpdate>(true);
+        uiRes.gameObject.SetActive(true);
     }
 
     public void Test()

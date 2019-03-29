@@ -13,16 +13,18 @@ function LoginCtrl.OnCreate()
 	--创建UI后回调
 	CS.GApp.UIMgr:GetGameObject("wxloginbtn"):GetComponent("UnityEngine.UI.Button").onClick:AddListener(LoginCtrl.wxlogin)
 
-	if CS.GApp.Ins:GetMode() == 0 then
-		LoginView:AccLoginPanel()
-		CS.GApp.UIMgr:GetGameObject("accloginbtn"):GetComponent("UnityEngine.UI.Button").onClick:AddListener(LoginCtrl.accLogin)
-		CS.GApp.UIMgr:GetGameObject("accregisterbtn"):GetComponent("UnityEngine.UI.Button").onClick:AddListener(LoginCtrl.accRegister)
-	end
+	--if CS.GApp.Ins:GetMode() == 0 then
+		--LoginView:AccLoginPanel()
+		--CS.GApp.UIMgr:GetGameObject("accloginbtn"):GetComponent("UnityEngine.UI.Button").onClick:AddListener(LoginCtrl.accLogin)
+		--CS.GApp.UIMgr:GetGameObject("accregisterbtn"):GetComponent("UnityEngine.UI.Button").onClick:AddListener(LoginCtrl.accRegister)
+	--end
 	--连接服务器
 	LoginCtrl.netConn()
 end
 
 function LoginCtrl.wxlogin()
+	--暂时使用游客登陆
+	CS.GApp.NetMgr:Send(0,Main_ID.Lobby,Lobby_ID.VisitorLogin,nil)
 end
 
 function LoginCtrl.accRegister()
