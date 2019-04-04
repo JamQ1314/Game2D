@@ -91,7 +91,9 @@ public class NSocket
 
             if (nAllDataSiz == nRecvSize)
             {
-                ProcessNetEvent(RecvBuffer);
+                byte[] tempBuff = new byte[nAllDataSiz];
+                Array.Copy(RecvBuffer, 0, tempBuff, 0, nAllDataSiz);
+                ProcessNetEvent(tempBuff);
 
                 nRecvSize = 0;
             }
@@ -108,11 +110,18 @@ public class NSocket
         }
     }
 
-    private void ProcessNetEvent(byte[] bytes)
+    private void ProcessNetEvent(byte[] msgBytes)
     {
-        byte[] tempHeadBuff = new byte[nHeadSize];
-        Array.Copy(bytes, 0, tempHeadBuff, 0, nHeadSize);
-//        TCP_Head tcpHead = NetDefine.BytesToStru<TCP_Head>(tempHeadBuff);
+        int nHeadSize = Marshal.SizeOf(typeof(TCP_Head));
+        TCP_Head tcpHead = (TCP_Head)NetDefine.BytesToStru<TCP_Head>(msgBytes);
+        int nBufferSize = msgBytes.Length - nHeadSize;
+
+        byte[] buffer = new byte[nBufferSize];
+        Array.Copy(msgBytes, nHeadSize, buffer, 0, nBufferSize);
+
+
+        Debug.Log(string.Format("<color=yellow>收到服务器数据长度：{0}   主命令：{1}  子命令：{2} </color>", msgBytes.Length, tcpHead.Cmd.Main_ID, tcpHead.Cmd.Sub_ID));
+        GApp.NetMgr.AddNetMessage(tcpHead.Cmd.Main_ID, tcpHead.Cmd.Sub_ID, buffer);
     }
 
 
@@ -149,10 +158,6 @@ public class NSocket
         },socket);
     }
 
-    void SendCB(IAsyncResult ar)
-    {
-
-    }
     public void ReConn(int eCode)
     {
         

@@ -2,24 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 using XLua;
 
 public class DoTest : MonoBehaviour
 {
 
-    private LuaEnv luaenv = new LuaEnv();
 
 	// Use this for initialization
     void Start()
     {
-//        var go = Instantiate(
-//            AssetDatabase.LoadAssetAtPath<GameObject>("Assets/ABGame/prefabs/ui/login/LoginView.prefab"));
+       var BYTES =  BitConverter.GetBytes(256);
 
-//        var ast = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/ABGame/LuaScripts/main.lua");
-//        luaenv.DoString(ast.bytes);
-
+        string str = "";
+        for (int i = 0; i < BYTES.Length; i++)
+        {
+            str += BYTES[i] + " ";
+        }
     }
 	
 	// Update is called once per frame

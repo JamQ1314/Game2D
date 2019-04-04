@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 public class AssetLoaderManager : ManagerBase
@@ -65,6 +64,8 @@ public class AssetLoaderManager : ManagerBase
             return default(T);
         }
         string abName = dictAssets[name.ToLower()];
+
+        //Debug.Log(string.Format("<Load Asset , name :"+ name +"    abName :"+ abName));
         //加载依赖
         string[] dps = manifest.GetAllDependencies(abName);
         if (dps.Length != 0)
@@ -78,6 +79,7 @@ public class AssetLoaderManager : ManagerBase
         AssetBundle ab = LoadAssetBundle(abName);
         return ab.LoadAsset<T>(name.ToLower());
     }
+
     /// <summary>
     /// 加载并且实例化
     /// </summary>
@@ -87,13 +89,18 @@ public class AssetLoaderManager : ManagerBase
     {
         if (GApp.Ins.GMode == GameMode.Debug)
         {
+#if UNITY_EDITOR
             assetName = assetName.Replace(".", "/") +".prefab";
             string fullName = "Assets/ABGame/" + assetName;
-            return (GameObject)Instantiate(AssetDatabase.LoadAssetAtPath<Object>(fullName));
+            return (GameObject)Instantiate(UnityEditor.AssetDatabase.LoadAssetAtPath<Object>(fullName));
+#else 
+            return null;
+#endif
         }
         else
         {
-            Object o = Load<Object>(name);
+            var tagName = assetName.Substring(assetName.LastIndexOf(".") + 1);
+            Object o = Load<Object>(tagName);
             GameObject go = (GameObject)Instantiate(o);
             Invoke("Release", 3.0f);
             return go;

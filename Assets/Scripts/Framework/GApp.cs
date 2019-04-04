@@ -13,14 +13,14 @@ public enum GameMode
 [LuaCallCSharp]
 public class GApp :MonoBehaviour
 {
-    private static GApp ins = null;
+    //    private static GApp ins = null;
+    //
+    //    public static GApp Ins
+    //    {
+    //        get { return FindObjectOfType<GApp>(); }
+    //    }
 
-    public static GApp Ins
-    {
-        get { return FindObjectOfType<GApp>(); }
-    }
-
-
+    public static GApp Ins;
     public GameMode GMode = GameMode.Debug;
 
     public int GetMode()
@@ -47,9 +47,14 @@ public class GApp :MonoBehaviour
     /// Lua管理器
     /// </summary>
     public static LuaManager LuaMgr = null;
-    /// <summary>
-    /// 
-    /// </summary>
+
+    private void Awake()
+    {
+        Ins = this;
+#if !UNITY_EDITOR
+        GMode = GameMode.Release;
+#endif
+    }
     private void Start()
     {
         DoUpdate();
@@ -94,5 +99,14 @@ public class GApp :MonoBehaviour
     public static void Test()
     {
         print("GApp.Test() ");
+    }
+    public static void Test2(string  k)
+    {
+        print("GApp.Test() :" + k);
+    }
+
+    public void Test3(string k)
+    {
+        print("GApp.Test() :" + k);
     }
 }

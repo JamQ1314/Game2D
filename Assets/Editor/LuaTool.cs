@@ -7,7 +7,19 @@ public class LuaTool : Editor
 {
     static string srcPath = Application.dataPath + "/LuaScripts";
     static string dstPath = Application.dataPath + "/ABGame/lua";
-    [MenuItem("Tools/Lua Copy")]
+
+    [MenuItem("Tools/Lua/Delete")]
+    static void Del()
+    {
+        if (!Directory.Exists(dstPath))
+            Directory.CreateDirectory(dstPath);
+        else
+            ClearDir(dstPath);
+
+        AssetDatabase.Refresh();
+    }
+
+    [MenuItem("Tools/Lua/Copy")]
     static void Copy()
     {
         if (!Directory.Exists(dstPath))
@@ -19,6 +31,8 @@ public class LuaTool : Editor
 
         AssetDatabase.Refresh();
     }
+
+ 
 
     /// <summary>
     /// 清空ABGame/lua文件夹下所有文件

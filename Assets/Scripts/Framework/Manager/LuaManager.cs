@@ -30,10 +30,10 @@ public class LuaManager :ManagerBase
         }
         else
         {
-            return null;
+            string luaName = fileName.Substring(fileName.LastIndexOf('.')+ 1);
+            TextAsset luaScript = GApp.AssetLoaderMgr.Load<TextAsset>(luaName + ".lua");
+            return System.Text.Encoding.UTF8.GetBytes(luaScript.text);
         }
-        
-
     }
 
     public LuaEnv GetLuaEnv()
